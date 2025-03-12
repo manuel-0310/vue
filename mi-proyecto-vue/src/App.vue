@@ -14,9 +14,11 @@ import LandingPage from './components/landingpage.vue';
 
 <style scoped>
 .app-container {
+  margin-top: -30px;
+  margin-left: -120px;
   display: flex;
   height: 100vh;
-  width: 100vw;
+  width: 99vw;
   background-color: #1E2A38;
 }
 

@@ -21,6 +21,7 @@ const toggleMenu = () => {
 
 <style scoped>
 .sidebar {
+  margin-top: 0px;
   width: 50px;
   height: 100vh;
   background: #111;
@@ -43,12 +44,6 @@ const toggleMenu = () => {
   font-size: 24px;
   cursor: pointer;
   margin-bottom: 10px;
-}
-
-.profile {
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.3s;
 }
 
 
