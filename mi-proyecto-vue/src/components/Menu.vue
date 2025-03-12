@@ -1,72 +1,70 @@
-<script setup>
+<template>
+  <nav :class="['menu', { 'menu-collapsed': isCollapsed }]">
+    <button class="toggle-button" @click="toggleMenu">☰</button>
+
+    <router-link to="/" class="menu-item" data-icon="🏠">Home</router-link>
+    <router-link to="/tip-calculator" class="menu-item" data-icon="💰">Divisor de Cuenta</router-link>
+  </nav>
+</template>
+
+<script>
 import { ref } from 'vue';
 
-const isExpanded = ref(false);
+export default {
+  setup() {
+    const isCollapsed = ref(false);
 
-const toggleMenu = () => {
-  isExpanded.value = !isExpanded.value;
+    const toggleMenu = () => {
+      isCollapsed.value = !isCollapsed.value;
+    };
+
+    return { isCollapsed, toggleMenu };
+  }
 };
 </script>
 
-<template>
-  <div :class="['sidebar', { expanded: isExpanded }]">
-    <button class="menu-toggle" @click="toggleMenu">☰</button>
-    <nav class="nav">
-      <a href="#">Home</a>
-      <a href="#">Divisor de cuenta</a>
-      <a href="#">About us</a>
-    </nav>
-  </div>
-</template>
-
 <style scoped>
-.sidebar {
-  margin-top: 0px;
-  width: 50px;
+.menu {
+  width: 250px;
+  background: #E8C6C6; /* Rosa pastel */
+  padding: 20px;
   height: 100vh;
-  background: #111;
-  color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-top: 10px;
-  transition: width 0.3s ease-in-out;
+  transition: width 0.3s ease;
+  box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
-.expanded {
-  width: 200px;
+.menu-collapsed {
+  width: 60px;
 }
 
-.menu-toggle {
+/* Botón de menú */
+.toggle-button {
   background: none;
   border: none;
-  color: white;
-  font-size: 24px;
+  color: #6D597A; /* Morado vintage */
+  font-size: 28px;
   cursor: pointer;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  text-align: left;
 }
 
-
-.nav {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.expanded .nav {
-  opacity: 1;
-}
-
-.nav a {
+/* Estilos de los enlaces */
+.menu-item {
+  display: block;
   color: white;
   text-decoration: none;
-  padding: 10px;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background: #D8A7B1; /* Rosa más oscuro */
   text-align: center;
+  font-size: 18px;
+  transition: 0.3s;
 }
 
-.nav a:hover {
-  background: #444;
+.menu-item:hover {
+  background: #BF8B9F;
 }
 </style>
